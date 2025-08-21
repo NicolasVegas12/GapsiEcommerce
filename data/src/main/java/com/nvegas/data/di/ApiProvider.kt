@@ -1,5 +1,6 @@
 package com.nvegas.data.di
 
+import com.nvegas.data.BuildConfig
 import com.nvegas.data.network.services.products.IProductsServices
 import dagger.Module
 import dagger.Provides
@@ -15,7 +16,7 @@ object ApiProvider {
 
     @Provides
     @Singleton
-    fun provideProductsService(): IProductsServices = ApiBuilder.getService()
+    fun provideProductsService(): IProductsServices = ApiBuilder.getService(BuildConfig.BASE_URL)
 
 
 }

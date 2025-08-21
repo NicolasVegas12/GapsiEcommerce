@@ -3,6 +3,8 @@ package com.nvegas.data.repositories
 import com.nvegas.data.local.database.dao.SuggestionsDao
 import com.nvegas.data.local.database.entities.SuggestEntity
 import com.nvegas.domain.repositories.ISuggestRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.UUID
@@ -22,8 +24,11 @@ class SuggestionsRepository @Inject constructor(
         dao.insert(suggest.copy(timestamp = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)))
     }
 
-    override suspend fun getSuggestions(): List<String> {
-        return dao.getSuggestions().map { it.value }
+    override  fun getSuggestions(): Flow<List<String>> {
+        return dao.getSuggestions()
+            .map {
+                it.map { it.value }
+            }
 
     }
 }

@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     `android-library`
     `kotlin-android`
@@ -7,11 +10,27 @@ plugins {
 }
 apply<MainGradlePlugin>()
 
+val serverFile = rootProject.file("server.properties")
+val serverProps = Properties()
+serverProps.load(FileInputStream(serverFile))
+val SERVER_URL = '"' + serverProps["SERVER_URL"] as String + '"'
+
+
+
+val keystoreFile = rootProject.file("keystore.properties")
+val keystoreProps = Properties()
+keystoreProps.load(FileInputStream(keystoreFile))
+val API_SECRET = '"' + keystoreProps["API_SECRET_KEY"] as String+ '"'
+
 android {
     namespace = ModulesConfig.dataNamespace
 
     buildTypes {
+        getByName("debug") {
+            buildConfigField("String", "BASE_URL", SERVER_URL)
+            buildConfigField("String", "API_SECRET_KEY", API_SECRET)
 
+        }
 
 
     }

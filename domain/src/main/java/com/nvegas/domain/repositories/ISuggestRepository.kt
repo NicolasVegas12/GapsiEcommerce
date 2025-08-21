@@ -1,6 +1,8 @@
 package com.nvegas.domain.repositories
 
+import kotlinx.coroutines.flow.Flow
+
 interface ISuggestRepository {
     suspend fun insertSuggestion(text:String)
-    suspend fun getSuggestions():List<String>
+     fun getSuggestions(): Flow<List<String>>
 }

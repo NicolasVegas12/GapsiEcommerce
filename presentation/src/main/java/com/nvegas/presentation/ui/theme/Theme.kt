@@ -1,4 +1,4 @@
-package com.nvegas.gapsiecommerce.ui.theme
+package com.nvegas.presentation.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -1,4 +1,4 @@
-package com.nvegas.gapsiecommerce.ui.theme
+package com.nvegas.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

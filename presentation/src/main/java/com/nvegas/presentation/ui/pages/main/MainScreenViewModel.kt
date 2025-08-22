@@ -24,7 +24,8 @@ class MainScreenViewModel @Inject constructor(
     private val getProductsUseCase: GetProductsBySugestionUseCase,
     private val getSuggestionsUseCase: GetSuggestionsUseCase
 ) : ViewModel() {
-    var pager: Flow<PagingData<ProductItemModel>>? = null
+    private val _pager = MutableStateFlow<Flow<PagingData<ProductItemModel>>?>(null)
+    val pager: StateFlow<Flow<PagingData<ProductItemModel>>?> = _pager
 
     private val _suggestionText = mutableStateOf("")
     val suggestionText: State<String> = _suggestionText
@@ -42,7 +43,7 @@ class MainScreenViewModel @Inject constructor(
     }
 
     fun getProducts() {
-        pager = Pager(
+        _pager.value = Pager(
             config = PagingConfig(pageSize = 10),
             pagingSourceFactory = {
                 ProductsPagingSource(

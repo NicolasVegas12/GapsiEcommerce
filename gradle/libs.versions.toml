@@ -11,6 +11,7 @@ composeBom = "2024.09.00"
 appcompat = "1.7.1"
 material = "1.12.0"
 
+adaptive = "1.1.1"
 
 room = "2.7.0"
 
@@ -96,6 +97,9 @@ androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime", 
 androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingCompose" }
 google-swipe-refresh = {group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipeRefresh"}
 
+material3-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "adaptive" }
+
+
 
 [plugins]
 
@@ -108,7 +112,7 @@ room = {id = "androidx.room", version.ref = "room"}
 
 room = ["androidx-room-core", "androidx-room-runtime"]
 android-compose-core = ["androidx-material3", "androidx-ui", "androidx-ui-graphics", "androidx-ui-tooling-preview", "androidx-activity-compose", "androidx-lifecycle-runtime-ktx", "androidx-core-ktx", "androidx-ui-tooling"]
-android-compose-extensions = ["androidx-compose-constraint-layout", "androidx-compose-navigation", "androidx-icons", "androidx-material", "androidx-lottie", "androidx-ui-text-google-fonts", "io-coil"]
+android-compose-extensions = ["androidx-compose-constraint-layout","material3-adaptive", "androidx-compose-navigation", "androidx-icons", "androidx-material", "androidx-lottie", "androidx-ui-text-google-fonts", "io-coil"]
 dagger-hilt-compose = ["dagger-hilt-core", "dagger-hilt-navigation"]
 dagger-hilt-compiler = ["dagger-hilt-compiler", "androidx-hilt-compiler"]
 retrofit = ["retrofit-core", "retrofit-loging-interceptor", "retrofit-okhttp"]

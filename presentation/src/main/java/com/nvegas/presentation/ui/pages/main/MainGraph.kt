@@ -17,12 +17,12 @@ fun NavGraphBuilder.mainGraph() {
         composable<MainDestination.MainScreenRoute> {
             val viewModel = hiltViewModel<MainScreenViewModel>()
 
-            val products = viewModel.pager?.collectAsLazyPagingItems()
+            val pagerFlow = viewModel.pager.collectAsState().value
             val suggestions by viewModel.suggestions.collectAsState()
             val query by viewModel.suggestionText
 
             MainScreen(
-                products = products,
+                products = pagerFlow?.collectAsLazyPagingItems(),
                 suggestions = suggestions,
                 searchQuery = query,
                 setSeachQuery = viewModel::updateSuggestion,

@@ -16,7 +16,7 @@ class ProductsServices @Inject constructor(
         val response = api.getProducts(keyword, page, "best_match", token)
 
         return if (response.isSuccessful) {
-            response.body()?.props?.pageProps?.initialData?.searchResult?.itemStacks ?: emptyList()
+            response.body()?.data?.props ?.pageProps?.initialData?.searchResult?.itemStacks ?: emptyList()
         } else {
             emptyList()
         }

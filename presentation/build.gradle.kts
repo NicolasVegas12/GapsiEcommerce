@@ -35,7 +35,9 @@ dependencies {
     implementation(libs.bundles.dagger.hilt.compose)
     ksp(libs.bundles.dagger.hilt.compiler)
 
-
+    implementation(libs.google.swipe.refresh)
+    implementation(libs.bundles.paging)
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

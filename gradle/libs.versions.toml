@@ -35,7 +35,9 @@ hiltWork = "1.2.0"
 
 ksp = "2.1.20-1.0.31"
 
-
+pagingRuntime = "3.3.6"
+pagingCompose = "3.3.6"
+swipeRefresh = "0.31.1-alpha"
 
 okHttp = "4.12.0"
 retrofit = "2.9.0"
@@ -90,6 +92,9 @@ serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serializ
 serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "serialization" }
 serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "serializationConverter" }
 
+androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "pagingRuntime" }
+androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingCompose" }
+google-swipe-refresh = {group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipeRefresh"}
 
 
 [plugins]
@@ -108,3 +113,4 @@ dagger-hilt-compose = ["dagger-hilt-core", "dagger-hilt-navigation"]
 dagger-hilt-compiler = ["dagger-hilt-compiler", "androidx-hilt-compiler"]
 retrofit = ["retrofit-core", "retrofit-loging-interceptor", "retrofit-okhttp"]
 serialization = ["serialization-collections", "serialization-converter", "serialization-core", "serialization-json"]
+paging = ["androidx-paging-compose", "androidx-paging-runtime"]

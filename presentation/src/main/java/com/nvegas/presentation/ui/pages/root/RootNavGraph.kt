@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import com.nvegas.presentation.navigation.components.NavigationAction
 import com.nvegas.presentation.navigation.components.ObserveAsEvents
 import com.nvegas.presentation.navigation.destinations.Destination
+import com.nvegas.presentation.ui.pages.main.mainGraph
 import com.nvegas.presentation.ui.pages.splash.splashGraph
 import kotlinx.coroutines.flow.Flow
 
@@ -41,5 +42,6 @@ fun RootNavGraph(
         startDestination = startDestination,
     ) {
         splashGraph()
+        mainGraph()
     }
 }

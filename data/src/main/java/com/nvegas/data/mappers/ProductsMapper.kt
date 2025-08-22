@@ -9,7 +9,7 @@ object ProductsMapper {
     fun ProductsItemsStackResponse.toDomain() =ProductsStackModel(
         title = title,
         count = count,
-        items = items.map { it.toDomain() }
+        items = items.filter { it.type=="Product"  && it.price>0}.map { it.toDomain() }
 
     )
     private fun ProductItemResponse.toDomain() = ProductItemModel(
